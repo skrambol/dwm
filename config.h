@@ -20,6 +20,9 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_white, col_black, col_black },
 };
 
+/* staticstatus */
+static const int statmonval = 0;
+
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
@@ -28,8 +31,9 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Firefox",  NULL,       NULL,       1 << 1,       0,           -1 },
+	/* class, instance, title, tags mask, isfloating, monitor */
+	{ "Firefox", NULL, NULL, 1 << 1, 0, 1 },
+	{ "st-256color", NULL, NULL, 1 << 0, 0, 0 },
 };
 
 /* layout(s) */
