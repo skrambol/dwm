@@ -18,6 +18,11 @@ static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_black, col_black },
 	[SchemeSel]  = { col_white, col_black, col_black },
+	[SchemeStatus]  = { col_white, col_black,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel]  = { col_white, col_black,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsNorm]  = { col_gray2, col_black,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeInfoSel]  = { col_white, col_black,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoNorm]  = { col_gray2, col_black,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* staticstatus */
