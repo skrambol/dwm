@@ -6,8 +6,8 @@ static const unsigned int borderpx = 1; /* border pixel of windows */
 static const unsigned int snap = 32;    /* snap pixel */
 static const int showbar = 1;           /* 0 means no bar */
 static const int topbar = 1;            /* 0 means bottom bar */
-static const char *fonts[] = {"JetBrainsMonoNL Nerd Font Mono:size=12"};
-static const char dmenufont[] = "JetBrainsMonoNL Nerd Font Mono:size=12";
+static const char *fonts[] = {"JetBrainsMonoNL Nerd Font Mono:size=14"};
+static const char dmenufont[] = "JetBrainsMonoNL Nerd Font Mono:size=14";
 static const char col_gray2[] = "#444444";
 static const char col_black[] = "#000000";
 static const char col_white[] = "#ffffff";
@@ -76,20 +76,22 @@ static const char *dmenucmd[] = {
     col_white,   "-sb", col_gray2, "-sf", col_white, NULL};
 static const char *cmd_term[] = {"st", NULL};
 static const char *cmd_web[] = {"firefox", NULL};
-static const char *cmd_volume_inc[] = {"status_volume_set", "+2%", NULL};
-static const char *cmd_volume_dec[] = {"status_volume_set", "-2%", NULL};
+static const char *cmd_volume_inc[] = {"status_volume_set", "+", NULL};
+static const char *cmd_volume_dec[] = {"status_volume_set", "-", NULL};
 static const char *cmd_volume_toggle[] = {"status_volume_set", "toggle", NULL};
+static const char *cmd_screenshot_area[] = {"screenshot_area", NULL};
 static const char *cmd_lockscreen[] = {"lockscreen", NULL};
 
 static Key keys[] = {
     /* modifier, key, function, argument */
-    {MODKEY, XK_p, spawn, {.v = dmenucmd}},
+    {MODKEY, XK_d, spawn, {.v = dmenucmd}},
     {MODKEY, XK_Return, spawn, {.v = cmd_term}},
     {MODKEY, XK_f, spawn, {.v = cmd_web}},
     {MODKEY, XK_grave, spawn, {.v = cmd_lockscreen}},
     {0, XF86XK_AudioRaiseVolume, spawn, {.v = cmd_volume_inc}},
     {0, XF86XK_AudioLowerVolume, spawn, {.v = cmd_volume_dec}},
     {0, XF86XK_AudioMute, spawn, {.v = cmd_volume_toggle}},
+    {MODKEY | ShiftMask, XK_s, spawn, {.v = cmd_screenshot_area}},
 
     {MODKEY, XK_b, togglebar, {0}},
     {MODKEY, XK_j, focusstack, {.i = +1}},
@@ -100,7 +102,7 @@ static Key keys[] = {
     {MODKEY, XK_Right, setmfact, {.f = +0.05}},
     {MODKEY | ShiftMask, XK_Return, zoom, {0}},
     {MODKEY, XK_Tab, view, {0}},
-    {MODKEY | ShiftMask, XK_c, killclient, {0}},
+    {MODKEY, XK_q, killclient, {0}},
     {MODKEY, XK_bracketleft, setlayout, {.v = &layouts[0]}},
     {MODKEY, XK_bracketright, setlayout, {.v = &layouts[1]}},
     {MODKEY, XK_m, setlayout, {.v = &layouts[2]}},
